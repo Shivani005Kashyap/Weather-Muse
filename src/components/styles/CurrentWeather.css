@@ -1,0 +1,195 @@
+.CurrentWeather {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* =========================
+   MAIN WEATHER CARD
+========================= */
+
+.CurrentWeather .temperature {
+  width: 320px;
+  padding: 1.8rem;
+  margin-top: 1rem;
+
+  border-radius: 24px;
+
+  color: white;
+
+  backdrop-filter: blur(12px);
+
+  transition: all 0.3s ease;
+}
+
+.CurrentWeather .temperature:hover {
+  transform: translateY(-4px);
+}
+
+.CurrentWeather .temperature .weather-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.CurrentWeather .temperature .value .real {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.CurrentWeather .temperature .value .feels_like {
+  margin-top: 6px;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.CurrentWeather .temperature .summary {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* =========================
+   WEATHER DETAILS
+========================= */
+
+.other-infos {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+
+  overflow-x: auto;
+  border-radius: 20px;
+
+  backdrop-filter: blur(12px);
+}
+
+.other-infos::-webkit-scrollbar {
+  display: none;
+}
+
+.CurrentWeather .other-infos .widget {
+  min-width: 155px;
+  flex-shrink: 0;
+}
+
+.CurrentWeather .other-infos .widget .widget-container {
+  padding: 1rem;
+  border-radius: 16px;
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+.CurrentWeather .other-infos .widget .widget-container:hover {
+  transform: translateY(-4px);
+}
+
+.CurrentWeather .other-infos .widget .widget-container .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.6rem;
+
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.CurrentWeather .other-infos .widget .widget-container .name {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.CurrentWeather .other-infos .widget i {
+  font-size: 1.2rem;
+}
+
+/* =========================
+   SUMMER MODE 🌅
+========================= */
+
+.summer-mode .CurrentWeather .temperature {
+  background: linear-gradient(
+    135deg,
+    #ff9966,
+    #ff6b6b,
+    #845ec2
+  );
+
+  box-shadow: 0 12px 30px rgba(255, 107, 53, 0.25);
+}
+
+.summer-mode .other-infos {
+  background: rgba(255, 153, 102, 0.15);
+}
+
+.summer-mode .widget-container {
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+}
+
+/* =========================
+   WINTER MODE ❄️
+========================= */
+
+.winter-mode .CurrentWeather .temperature {
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e3a8a,
+    #38bdf8
+  );
+
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+}
+
+.winter-mode .other-infos {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.winter-mode .widget-container {
+  background: rgba(30, 41, 59, 0.8);
+  color: white;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .CurrentWeather .temperature {
+    width: 100%;
+  }
+
+  .CurrentWeather .temperature .value .real {
+    font-size: 2.5rem;
+  }
+
+  .CurrentWeather .other-infos .widget {
+    min-width: 140px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .CurrentWeather .temperature {
+    padding: 1.2rem;
+  }
+
+  .CurrentWeather .temperature .value .real {
+    font-size: 2rem;
+  }
+
+  .CurrentWeather .temperature .summary {
+    font-size: 1rem;
+  }
+
+  .CurrentWeather .other-infos .widget {
+    min-width: 120px;
+  }
+}

@@ -1,0 +1,273 @@
+/* =========================
+   GLOBAL FIX (IMPORTANT)
+========================= */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+/* =========================
+   WEATHER MAPS PAGE WRAPPER
+========================= */
+
+.weather-maps-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+  transition: all 0.4s ease;
+}
+
+/* =========================
+   TITLE STYLE
+========================= */
+
+.weather-maps-container h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   DESCRIPTION TEXT
+========================= */
+
+.weather-maps-container p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   MAP WRAPPER (MAIN HERO)
+========================= */
+
+.map-wrapper {
+  margin-top: 20px;
+  border-radius: 28px;
+  overflow: hidden;
+  padding: 10px;
+  backdrop-filter: blur(16px);
+  transition: all 0.35s ease;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.map-wrapper:hover {
+  transform: translateY(-6px);
+}
+
+/* Leaflet fix */
+.map-wrapper .leaflet-container {
+  width: 100%;
+  height: 650px;
+  border-radius: 18px;
+}
+
+/* =========================
+   MAP CONTROLS
+========================= */
+
+.map-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.map-controls button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.map-controls button:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+   WEATHER CARD (FIXED)
+========================= */
+
+.map-card {
+  margin-top: 20px;
+  padding: 24px;
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+
+  background: rgba(230, 90, 90, 0.25);
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Title */
+.map-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Text */
+.map-card p {
+  margin: 6px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Hover effect */
+.map-card:hover {
+  background: rgba(230, 90, 90, 0.25);
+  transform: translateY(-5px);
+}
+/* =========================
+   SEARCH BAR (if used)
+========================= */
+
+.map-search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.map-search input {
+  padding: 10px 14px;
+  width: 250px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.map-search button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* =========================
+   🌅 SUMMER MODE (FIXED FULL ORANGE)
+========================= */
+
+.summer-mode {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ff7e5f,
+    #feb47b,
+    #ff9a44
+  );
+  color: #1f1f1f;
+}
+
+.summer-mode .weather-maps-container {
+  background: rgba(255, 140, 70, 0.12);
+}
+
+.summer-mode p,
+.summer-mode h1,
+.summer-mode h2,
+.summer-mode h3 {
+  color: #2b1b12;
+}
+
+.summer-mode .map-wrapper {
+  background: rgba(255, 140, 70, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.summer-mode .map-card {
+  background: rgba(255, 165, 80, 0.25);
+  color: #2b1b12;
+  box-shadow: 0 12px 30px rgba(255, 120, 60, 0.25);
+}
+
+.summer-mode .map-controls button {
+  color: #2b1b12;
+}
+
+/* =========================
+   ❄️ WINTER MODE
+========================= */
+
+.winter-mode {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+  color: white;
+}
+
+.winter-mode .weather-maps-container {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.winter-mode .map-wrapper {
+  background: rgba(30, 41, 59, 0.75);
+}
+
+.winter-mode .map-card {
+  background: rgba(30, 41, 59, 0.6);
+  color: #e2e8f0;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+}
+
+.winter-mode .map-controls button {
+  color: #7dd3fc;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .weather-maps-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .weather-maps-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .map-wrapper .leaflet-container {
+    height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-maps-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .map-wrapper .leaflet-container {
+    height: 350px;
+  }
+}

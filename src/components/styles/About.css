@@ -1,0 +1,144 @@
+.about-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.about-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.about-header p {
+  font-size: 1.15rem;
+}
+
+.about-content .about-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+}
+
+.about-section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+  padding-left: 12px;
+}
+
+.about-section p,
+.about-section ul {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-section ul {
+  padding-left: 1.5rem;
+}
+
+.about-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+/* =========================
+   SUMMER MODE 🌅
+========================= */
+
+.summer-mode .about-container {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 30px rgba(255, 94, 98, 0.15);
+}
+
+.summer-mode .about-header h1 {
+  color: #ff6b35;
+}
+
+.summer-mode .about-header p {
+  color: #6b4f4f;
+}
+
+.summer-mode .about-section {
+  background: #fff8f3;
+}
+
+.summer-mode .about-section h2 {
+  color: #ff6b35;
+  border-left: 4px solid #ff9966;
+}
+
+.summer-mode .about-section p,
+.summer-mode .about-section ul {
+  color: #444;
+}
+
+/* =========================
+   WINTER MODE ❄️
+========================= */
+
+.winter-mode .about-container {
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+.winter-mode .about-header h1 {
+  color: #7dd3fc;
+}
+
+.winter-mode .about-header p {
+  color: #cbd5e1;
+}
+
+.winter-mode .about-section {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.winter-mode .about-section h2 {
+  color: #7dd3fc;
+  border-left: 4px solid #38bdf8;
+}
+
+.winter-mode .about-section p,
+.winter-mode .about-section ul {
+  color: #e2e8f0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .about-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .about-header h1 {
+    font-size: 2rem;
+  }
+
+  .about-header p {
+    font-size: 1rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-section p,
+  .about-section ul {
+    font-size: 1rem;
+  }
+}

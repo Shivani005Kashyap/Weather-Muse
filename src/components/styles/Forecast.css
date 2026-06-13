@@ -1,0 +1,281 @@
+/* ===================================
+   FORECAST BASE WRAPPER (UPDATED)
+=================================== */
+
+.Forecast {
+  width: 100%;
+  user-select: none;
+
+  padding: 20px;
+  border-radius: 24px;
+
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.3s ease;
+}
+
+/* Title */
+.Forecast h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5b2c1f;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
+/* ===================================
+   SCROLL CONTAINER
+=================================== */
+
+.Forecast .widget-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 12px 8px;
+  border-radius: 18px;
+  scroll-behavior: smooth;
+}
+
+.Forecast .widget-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===================================
+   FORECAST ITEM
+=================================== */
+
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Date */
+.forecast-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5b2c1f;
+  margin-bottom: 2px;
+}
+
+.forecast-time {
+  font-size: 0.75rem;
+  color: #8b5e3c;
+  margin-bottom: 8px;
+}
+
+/* ===================================
+   WEATHER CARD
+=================================== */
+
+.Forecast .widget {
+  width: 105px;
+  min-height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 140, 66, 0.95),
+    rgba(232, 93, 4, 0.92)
+  );
+
+  color: white;
+  text-align: center;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 20px rgba(232, 93, 4, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.Forecast .widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(232, 93, 4, 0.35);
+}
+
+/* Icon */
+.Forecast .widget .icon-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Forecast .widget .icon-temp img {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 6px;
+}
+
+/* Temperature */
+.Forecast .widget .temperature {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.Forecast .widget .max {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.Forecast .widget .min {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Rain */
+.Forecast .widget .precipitation {
+  font-size: 0.75rem;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Wind */
+.Forecast .widget .wind {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.Forecast .widget .dir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================================
+   SUMMER MODE ☀️
+=================================== */
+
+.summer-mode .Forecast {
+  background: rgba(255, 248, 241, 0.9);
+  box-shadow: 0 10px 30px rgba(255, 140, 66, 0.15);
+}
+
+.summer-mode .Forecast h3 {
+  color: #5b2c1f;
+}
+
+.summer-mode .Forecast .forecast-date {
+  color: #5b2c1f;
+}
+
+.summer-mode .Forecast .forecast-time {
+  color: #8b5e3c;
+}
+
+/* ===================================
+   WINTER MODE ❄️
+=================================== */
+
+.winter-mode .Forecast {
+  background: rgba(15, 23, 42, 0.35);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+}
+
+.winter-mode .Forecast h3 {
+  color: #7dd3fc;
+}
+
+.winter-mode .Forecast .forecast-date {
+  color: #cbd5e1;
+}
+
+.winter-mode .Forecast .forecast-time {
+  color: #94a3b8;
+}
+
+/* Winter widget theme */
+.winter-mode .Forecast .widget {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.85),
+    rgba(30, 58, 138, 0.85)
+  );
+
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+}
+
+.winter-mode .Forecast .widget:hover {
+  box-shadow: 0 14px 28px rgba(56, 189, 248, 0.3);
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media (max-width: 768px) {
+  .Forecast h3 {
+    font-size: 1rem;
+  }
+
+  .Forecast .widget {
+    width: 95px;
+    min-height: 110px;
+    padding: 10px;
+  }
+
+  .Forecast .widget .icon-temp img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .forecast-date {
+    font-size: 0.8rem;
+  }
+
+  .forecast-time {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Forecast h3 {
+    font-size: 0.9rem;
+  }
+
+  .Forecast .widget {
+    width: 85px;
+    min-height: 95px;
+    padding: 8px;
+  }
+
+  .Forecast .widget .icon-temp img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .Forecast .widget .temperature {
+    font-size: 0.9rem;
+  }
+
+  .Forecast .widget .precipitation,
+  .Forecast .widget .wind {
+    font-size: 0.65rem;
+  }
+
+  .forecast-date {
+    font-size: 0.75rem;
+  }
+
+  .forecast-time {
+    font-size: 0.65rem;
+  }
+}

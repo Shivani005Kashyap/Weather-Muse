@@ -1,0 +1,220 @@
+/* ===================================
+   NAVBAR
+=================================== */
+
+.navbar-custom {
+  backdrop-filter: blur(12px);
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===================================
+   BRAND / LOGO
+=================================== */
+
+.navbar-custom .navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+  transform: scale(1.03);
+}
+
+.navbar-custom img {
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom img:hover {
+  transform: rotate(8deg) scale(1.05);
+}
+
+/* ===================================
+   NAVIGATION LINKS (FIXED)
+=================================== */
+
+.navbar-custom .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  margin: 0 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  opacity: 0.95;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* Underline Animation */
+
+.navbar-custom .navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: transparent;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* ===================================
+   THEME SWITCH
+=================================== */
+
+.form-check-input {
+  width: 3rem;
+  height: 1.5rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.text-dark-mode,
+.text-light-mode {
+  font-weight: 600;
+}
+
+.text-light-mode {
+  color: white;
+}
+
+/* ===================================
+   SUMMER MODE ☀️
+=================================== */
+
+.summer-mode .navbar-custom {
+  background: rgba(108, 74, 182, 0.92);
+}
+
+.summer-mode .navbar-brand {
+  color: #ffffff !important;
+}
+
+.summer-mode .navbar-custom .nav-link {
+  color: #ffffff !important;
+}
+
+.summer-mode .navbar-custom .nav-link:hover {
+  color: #ffd6a5 !important;
+}
+
+.summer-mode .navbar-nav .nav-link::after {
+  background: #ffd6a5;
+}
+
+.summer-mode .form-check-input {
+  background-color: #c4b5fd;
+}
+
+.summer-mode .form-check-input:checked {
+  background-color: #ff8c42;
+}
+
+.summer-mode .text-dark-mode {
+  color: #ffd6a5;
+}
+
+/* ===================================
+   WINTER MODE ❄️
+=================================== */
+
+.winter-mode .navbar-custom {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.winter-mode .navbar-brand {
+  color: #ffffff !important;
+}
+
+.winter-mode .navbar-custom .nav-link {
+  color: #e2e8f0 !important;
+}
+
+.winter-mode .navbar-custom .nav-link:hover {
+  color: #7dd3fc !important;
+}
+
+.winter-mode .navbar-nav .nav-link::after {
+  background: #7dd3fc;
+}
+
+.winter-mode .form-check-input {
+  background-color: #64748b;
+}
+
+.winter-mode .form-check-input:checked {
+  background-color: #60a5fa;
+}
+
+.winter-mode .text-dark-mode {
+  color: #7dd3fc;
+}
+
+/* ===================================
+   MOBILE MENU
+=================================== */
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ===================================
+   TABLET
+=================================== */
+
+@media (max-width: 768px) {
+  .navbar-custom {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-custom .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-custom .navbar-nav .nav-link {
+    margin: 0.4rem 0;
+    text-align: center;
+  }
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width: 480px) {
+  .navbar-custom .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .navbar-custom img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

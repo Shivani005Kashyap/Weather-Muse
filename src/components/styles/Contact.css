@@ -1,0 +1,213 @@
+.contact-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+}
+
+.contact-container h1 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.contact-container p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.submit-button {
+  width: 100%;
+  padding: 0.95rem;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   THANK YOU
+========================= */
+
+.thank-you-message {
+  text-align: center;
+  padding: 2rem;
+}
+
+.thank-you-message h2 {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   SUMMER MODE 🌅
+========================= */
+
+.summer-mode .contact-container {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+}
+
+.summer-mode .contact-container h1 {
+  color: #ff6b35;
+}
+
+.summer-mode .contact-container p {
+  color: #6b4f4f;
+}
+
+.summer-mode .contact-form label {
+  color: #ff6b35;
+}
+
+.summer-mode .contact-form input,
+.summer-mode .contact-form textarea {
+  background: #fff8f3;
+  border: 1px solid #ffd3b6;
+}
+
+.summer-mode .contact-form input:focus,
+.summer-mode .contact-form textarea:focus {
+  border-color: #ff9966;
+  box-shadow: 0 0 12px rgba(255, 153, 102, 0.3);
+}
+
+.summer-mode .submit-button {
+  background: linear-gradient(
+    135deg,
+    #ff9966,
+    #ff6b35
+  );
+}
+
+.summer-mode .submit-button:hover {
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+}
+
+.summer-mode .thank-you-message h2 {
+  color: #ff6b35;
+}
+
+/* =========================
+   WINTER MODE ❄️
+========================= */
+
+.winter-mode .contact-container {
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+.winter-mode .contact-container h1 {
+  color: #7dd3fc;
+}
+
+.winter-mode .contact-container p {
+  color: #cbd5e1;
+}
+
+.winter-mode .contact-form label {
+  color: #7dd3fc;
+}
+
+.winter-mode .contact-form input,
+.winter-mode .contact-form textarea {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid #334155;
+  color: white;
+}
+
+.winter-mode .contact-form input:focus,
+.winter-mode .contact-form textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.winter-mode .submit-button {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #38bdf8
+  );
+}
+
+.winter-mode .submit-button:hover {
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+}
+
+.winter-mode .thank-you-message h2 {
+  color: #7dd3fc;
+}
+
+.winter-mode .thank-you-message p {
+  color: #e2e8f0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .contact-container h1 {
+    font-size: 2rem;
+  }
+
+  .contact-container p {
+    font-size: 1rem;
+  }
+}
