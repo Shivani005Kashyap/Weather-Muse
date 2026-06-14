@@ -1,80 +1,39 @@
- import { useContext } from "react";
+import { useContext } from "react";
 import WeatherIcon from "./WeatherIcon";
 import WeatherContext from "../context/Context";
 
 function HourlyForecastWidget({ data }) {
   const { units } = useContext(WeatherContext);
 
-  const {
-    date,
-    icon,
-    summary,
-    temperature,
-    precipitation,
-    wind,
-  } = data;
+  if (!data) return null;
 
-  const locale = navigator.language;
-  const weatherDate = new Date(date);
-  const now = new Date();
+  const date = new Date((data.dt || 0) * 1000);
 
-  const isCurrentHour =
-    weatherDate.getFullYear() === now.getFullYear() &&
-    weatherDate.getMonth() === now.getMonth() &&
-    weatherDate.getDate() === now.getDate() &&
-    weatherDate.getHours() === now.getHours();
-
-  const displayDay = isCurrentHour
-    ? "Now"
-    : new Intl.DateTimeFormat(locale, {
-        weekday: "short",
-        day: "2-digit",
-        month: "short",
-      }).format(weatherDate);
-
-  const displayTime = new Intl.DateTimeFormat(locale, {
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(weatherDate);
+  const time = isNaN(date.getTime())
+    ? "--:--"
+    : new Intl.DateTimeFormat(navigator.language, {
+        hour: "2-digit",
+        minute: "2-digit",
+      }).format(date);
 
   return (
     <div className="forecast-item">
-      <div className="forecast-date">{displayDay}</div>
-      <div className="forecast-time">{displayTime}</div>
+      <div className="forecast-time">{time}</div>
 
       <div className="widget">
-        <div className="icon-temp">
-          <WeatherIcon
-            iconNumber={icon}
-            summary={summary}
-            className="icon"
-          />
+        <WeatherIcon
+          iconNumber={data.weather?.[0]?.icon}
+          summary={data.weather?.[0]?.description}
+        />
 
-          <div className="temperature">
-            {Math.round(temperature)}
-            {units.temperature}
-          </div>
-        </div>
-
-        <div className="precipitation">
-          🌧️ {Math.round(precipitation.total)}
-          {units.precipitation}
+        <div className="temperature">
+          {Math.round(data.temp || 0)}
+          {units.temperature}
         </div>
 
         <div className="wind">
-          <div className="speed">
-            💨 {Math.round(wind.speed)}
-            {units.wind_speed}
-          </div>
-
-          <div
-            className="dir"
-            style={{
-              transform: `rotate(${-45 + wind.angle}deg)`,
-            }}
-          >
-            <i className="bi bi-send-fill"></i>
-          </div>
+          💨 {Math.round(data.wind_speed || 0)}
+          {units.wind_speed}
         </div>
       </div>
     </div>

@@ -193,3 +193,15 @@
     min-width: 120px;
   }
 }
+.weather-detail-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}

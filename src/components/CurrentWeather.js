@@ -1,4 +1,4 @@
-import { useContext } from "react";
+ import { useContext } from "react";
 import WeatherContext from "../context/Context";
 import WeatherIcon from "./WeatherIcon";
 import "./styles/CurrentWeather.css";
@@ -6,97 +6,69 @@ import "./styles/CurrentWeather.css";
 function CurrentWeather({ data }) {
   const { units } = useContext(WeatherContext);
 
-  // ✅ STOP CRASH IF DATA NOT LOADED
-  if (!data) {
+  if (!data || !data.main) {
     return <div className="CurrentWeather">Loading weather...</div>;
   }
-
-  const {
-    cloud_cover,
-    feels_like,
-    humidity,
-    icon_num,
-    precipitation,
-    summary,
-    temperature,
-    uv_index,
-    visibility,
-    wind,
-  } = data;
 
   const weatherDetails = [
     {
       id: 0,
       icon: "droplet",
-      name: "Precipitation",
-      value: Math.round(precipitation?.total || 0),
-      unit: units.precipitation,
+      name: "Humidity",
+      value: Math.round(data.main.humidity || 0),
+      unit: units.humidity,
     },
     {
       id: 1,
       icon: "wind",
       name: "Wind Speed",
-      value: Math.round(wind?.speed || 0),
+      value: Math.round(data.wind?.speed || 0),
       unit: units.wind_speed,
     },
     {
       id: 2,
-      icon: "moisture",
-      name: "Humidity",
-      value: Math.round(humidity || 0),
-      unit: units.humidity,
+      icon: "eye",
+      name: "Visibility",
+      value: Math.round((data.visibility || 0) / 1000),
+      unit: units.visibility,
     },
     {
       id: 3,
-      icon: "sunglasses",
-      name: "UV Index",
-      value: Math.round(uv_index || 0),
-      unit: units.uv_index,
-    },
-    {
-      id: 4,
       icon: "clouds-fill",
       name: "Cloud Coverage",
-      value: Math.round(cloud_cover || 0),
+      value: Math.round(data.clouds?.all || 0),
       unit: units.cloud_cover,
-    },
-    {
-      id: 5,
-      icon: "eye",
-      name: "Visibility",
-      value: Math.round(visibility || 0),
-      unit: units.visibility,
     },
   ];
 
   return (
     <div className="CurrentWeather">
-      {/* MAIN TEMP SECTION */}
       <div className="temperature">
         <WeatherIcon
-          iconNumber={icon_num}
-          summary={summary}
+          iconNumber={data.weather?.[0]?.icon}
+          summary={data.weather?.[0]?.description}
           className="weather-icon"
         />
 
         <div className="value">
           <div className="real">
-            {Math.round(temperature || 0)}
+            {Math.round(data.main.temp)}
             {units.temperature}
           </div>
 
           <div className="feels_like">
-            Feels Like {Math.round(feels_like || 0)}
+            Feels Like {Math.round(data.main.feels_like)}
             {units.temperature}
           </div>
         </div>
 
-        <div className="summary">{summary}</div>
+        <div className="summary">
+          {data.weather?.[0]?.description}
+        </div>
       </div>
 
-      {/* DETAILS SECTION */}
       <div className="other-infos">
-        {weatherDetails.map(({ id, name, icon, value, unit }) => (
+        {weatherDetails.map(({ id, icon, name, value, unit }) => (
           <div className="widget" key={id}>
             <div className="widget-container">
               <div className="info">

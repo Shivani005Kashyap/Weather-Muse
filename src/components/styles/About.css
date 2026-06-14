@@ -53,10 +53,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* =========================
-   SUMMER MODE 🌅
-========================= */
-
 .summer-mode .about-container {
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 10px 30px rgba(255, 94, 98, 0.15);
@@ -83,10 +79,6 @@
 .summer-mode .about-section ul {
   color: #444;
 }
-
-/* =========================
-   WINTER MODE ❄️
-========================= */
 
 .winter-mode .about-container {
   background: rgba(15, 23, 42, 0.85);
@@ -115,10 +107,6 @@
   color: #e2e8f0;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media (max-width: 768px) {
   .about-container {
     margin: 1rem;
@@ -126,7 +114,7 @@
   }
 
   .about-header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .about-header p {

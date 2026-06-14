@@ -64,7 +64,8 @@
 }
 
 .forecast-time {
-  font-size: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
   color: #8b5e3c;
   margin-bottom: 8px;
 }
@@ -242,7 +243,8 @@
   }
 
   .forecast-time {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 700;
   }
 }
 
@@ -276,6 +278,7 @@
   }
 
   .forecast-time {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
   }
 }

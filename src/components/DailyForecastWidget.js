@@ -5,58 +5,39 @@ import WeatherContext from "../context/Context";
 function DailyForecastWidget({ data }) {
   const { units } = useContext(WeatherContext);
 
-  const {
-    day,
-    icon,
-    summary,
-    temperature_max,
-    temperature_min,
-    precipitation,
-  } = data;
+  if (!data) return null;
 
-  const formatDate = (date) => {
-    return new Intl.DateTimeFormat(navigator.language, {
-      weekday: "short",
-      day: "2-digit",
-      month: "short",
-    }).format(new Date(date));
-  };
+  const date = new Date(data.dt * 1000);
 
-  const forecastDate = formatDate(day);
-  const todayDate = formatDate(new Date());
-
-  const displayDay =
-    forecastDate === todayDate ? "Today" : forecastDate;
+  const day = new Intl.DateTimeFormat(navigator.language, {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+  }).format(date);
 
   return (
     <div className="forecast-item">
-      <div className="forecast-date">{displayDay}</div>
+      <div className="forecast-date">{day}</div>
 
       <div className="widget">
-        <div className="icon-temp">
-          <WeatherIcon
-            iconNumber={icon}
-            summary={summary}
-            className="icon"
-          />
+        <WeatherIcon
+          iconNumber={data.weather?.[0]?.icon}
+          summary={data.weather?.[0]?.description}
+        />
 
-          <div className="temperature">
-            <div className="max">
-              {Math.round(temperature_max)}
-              {units.temperature}
-            </div>
+        <div className="temperature">
+          <div className="max">
+            {Math.round(data.temp?.max)}
+            {units.temperature}
+          </div>
 
-            <div className="min">
-              {Math.round(temperature_min)}
-              {units.temperature}
-            </div>
+          <div className="min">
+            {Math.round(data.temp?.min)}
+            {units.temperature}
           </div>
         </div>
 
-        <div className="precipitation">
-          {Math.round(precipitation.total)}
-          {units.precipitation}
-        </div>
+        
       </div>
     </div>
   );

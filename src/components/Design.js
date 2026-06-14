@@ -19,6 +19,7 @@ export default function Design() {
 
   const {
     loading,
+    error,
     currentWeather,
     dailyForecast,
     hourlyForecast,
@@ -32,26 +33,39 @@ export default function Design() {
     );
   }
 
+  if (error) {
+    return (
+      <div className="Main">
+        <div className="error-message">{error}</div>
+      </div>
+    );
+  }
+
   return (
     <div className="Main">
       <div className="overlay">
         <Search />
-        <CurrentWeather data={currentWeather} />
+
+        {currentWeather ? (
+          <CurrentWeather data={currentWeather} />
+        ) : (
+          <p>No current weather data</p>
+        )}
       </div>
 
       <div className="overlay1">
         <Forecast
           type="hourly"
           title="Hourly Forecast"
-          data={hourlyForecast}
+          data={hourlyForecast || []}
         />
       </div>
 
       <div className="overlay2">
         <Forecast
           type="daily"
-          title="21-Day Forecast"
-          data={dailyForecast}
+          title="Daily Forecast"
+          data={dailyForecast || []}
         />
       </div>
     </div>

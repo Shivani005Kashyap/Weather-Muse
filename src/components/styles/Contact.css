@@ -19,10 +19,6 @@
   margin-bottom: 2rem;
 }
 
-/* =========================
-   FORM
-========================= */
-
 .contact-form .form-group {
   margin-bottom: 1.5rem;
 }
@@ -53,10 +49,6 @@
   transform: translateY(-1px);
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .submit-button {
   width: 100%;
   padding: 0.95rem;
@@ -77,10 +69,6 @@
   transform: translateY(0);
 }
 
-/* =========================
-   THANK YOU
-========================= */
-
 .thank-you-message {
   text-align: center;
   padding: 2rem;
@@ -89,10 +77,6 @@
 .thank-you-message h2 {
   margin-bottom: 1rem;
 }
-
-/* =========================
-   SUMMER MODE 🌅
-========================= */
 
 .summer-mode .contact-container {
   background: rgba(255, 255, 255, 0.92);
@@ -139,10 +123,6 @@
   color: #ff6b35;
 }
 
-/* =========================
-   WINTER MODE ❄️
-========================= */
-
 .winter-mode .contact-container {
   background: rgba(15, 23, 42, 0.85);
   box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
@@ -165,6 +145,11 @@
   background: rgba(30, 41, 59, 0.8);
   border: 1px solid #334155;
   color: white;
+}
+
+.winter-mode .contact-form input::placeholder,
+.winter-mode .contact-form textarea::placeholder {
+  color: #94a3b8;
 }
 
 .winter-mode .contact-form input:focus,
@@ -193,10 +178,6 @@
   color: #e2e8f0;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media (max-width: 768px) {
   .contact-container {
     margin: 1rem;
@@ -204,7 +185,7 @@
   }
 
   .contact-container h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .contact-container p {
