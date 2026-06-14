@@ -1,13 +1,6 @@
 import { createContext, useEffect, useState } from "react";
-import {
-  DEFAULT_PLACE,
-  MEASUREMENT_SYSTEMS,
-  UNITS,
-} from "../constants/index";
-import {
-  getCurrentWeather,
-  getForecast,
-} from "../api";
+import { DEFAULT_PLACE, UNITS } from "../constants/index";
+import { getCurrentWeather, getForecast } from "../api";
 
 const WeatherContext = createContext();
 
@@ -20,10 +13,7 @@ function WeatherProvider({ children }) {
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [dailyForecast, setDailyForecast] = useState([]);
 
- const [measurementSystem, setMeasurementSystem] = useState(
-  "metric"
-  );
-
+  const [measurementSystem, setMeasurementSystem] = useState("metric");
   const [units, setUnits] = useState(UNITS.metric);
 
   useEffect(() => {
@@ -41,19 +31,13 @@ function WeatherProvider({ children }) {
 
         if (!isMounted) return;
 
-        // -------------------
         // CURRENT WEATHER
-        // -------------------
         setCurrentWeather(current);
 
-        // -------------------
         // UNITS
-        // -------------------
         setUnits(UNITS[measurementSystem] || UNITS.metric);
 
-        // -------------------
-        // HOURLY FORECAST (OpenWeather format)
-        // -------------------
+        // HOURLY FORECAST
         const hourly = forecast.list.slice(0, 8).map((item) => ({
           dt: item.dt,
           temp: item.main.temp,
@@ -69,9 +53,7 @@ function WeatherProvider({ children }) {
 
         setHourlyForecast(hourly);
 
-        // -------------------
-        // DAILY FORECAST (proper grouping)
-        // -------------------
+        // DAILY FORECAST
         const dailyMap = {};
 
         forecast.list.forEach((item) => {
@@ -92,7 +74,6 @@ function WeatherProvider({ children }) {
               humidity: item.main.humidity,
             };
           } else {
-            // update min/max properly
             dailyMap[date].temp.min = Math.min(
               dailyMap[date].temp.min,
               item.main.temp_min
